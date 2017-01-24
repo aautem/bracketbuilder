@@ -1,3 +1,57 @@
 body {
   background: grey;
 }
+
+.row {
+  width: 100%;
+}
+
+.col-1-3 {
+  width: 33.3%;
+  display: inline-block;
+}
+
+.nav {
+  width: 240px;
+  height: 40px;
+  background: black;
+  color: white;
+}
+
+.nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav li {
+  float: left;
+}
+
+.nav li a {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+
+.nav li a:hover {
+  background-color: red;
+}
+
+.matchup {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.spacer {
+  height: 10px;
+}
+
+.champ {
+  height: 35px;
+  border: 1px solid black;
+}
+
