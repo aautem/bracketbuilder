@@ -6,8 +6,15 @@ var bodyParser = require('body-parser');
 // create server
 var app = express();
 
+var mongodbUri = 'mongodb://heroku_wtmxnf01:ke5jtrirq9qt536f1v6u8i9vbl@ds127439.mlab.com:27439/heroku_wtmxnf01';
+
 // connect to database
-mongoose.connect('mongodb://localhost/bracketbuilder');
+mongoose.connect(mongodbUri);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('Database connected!');
+});
 
 // set server port
 app.set('port', (process.env.PORT || 8000));
