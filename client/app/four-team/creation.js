@@ -25,6 +25,13 @@ angular.module('bracket.create', [])
   };
 
   $scope.saveBracket = function() {
-    console.log('Saving bracket to database...');
+    if ($scope.data.bracket.name === '') {
+      console.log('Bracket must have title!');
+      return;
+    } else {
+      console.log('Saving bracket to database...');
+      // POST REQUEST TO API
+      Brackets.create($scope.data.bracket);
+    }
   };
 });

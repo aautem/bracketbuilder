@@ -6,7 +6,6 @@ angular.module('bracket.four', [])
   $scope.getOne = function() {
     console.log('GATHERING BRACKETS...');
 
-    // REPLACE THIS WITH VAR WINDOW.LOADEDBRACKET
     Brackets.getOne(window.loadedBracket)
       .then(function(bracket) {
         console.log('INCOMING BRACKET:', bracket);
