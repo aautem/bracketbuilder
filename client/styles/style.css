@@ -12,6 +12,11 @@ body {
   display: inline-block;
 }
 
+.col-1-5 {
+  width: 20%;
+  display: inline-block;
+}
+
 .nav {
   width: 240px;
   height: 40px;

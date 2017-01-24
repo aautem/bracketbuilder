@@ -1,0 +1,99 @@
+<div class="row">
+      <div class="nav">
+        <ul>
+          <li>
+            <a href="/#/brackets">My Brackets</a>
+          </li>
+          <li>
+            <a ng-click="saveBracket()">Save</a>
+          </li>
+        </ul>
+      </div>
+      <div class="title">
+        {{ data.bracket.name }}
+        <button ng-click="addTitle()">edit</button>
+      </div>
+      <div class="col-1-5">
+        <!-- LEFT SIDE BRACKET -->
+        <div class="matchup">
+          <span class="seed">1</span>
+          <span class="team" ng-click="advanceTeam(0,8)">{{ data.bracket.teams[0] }}</span><button ng-click="addTeam(0)">edit</button>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <div class="vs">vs</div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <span class="seed">8</span>
+          <span class="team" ng-click="advanceTeam(7,8)">{{ data.bracket.teams[7] }}</span><button ng-click="addTeam(7)">edit</button>
+        </div>
+        <div class="matchup">
+          <span class="seed">4</span>
+          <span class="team" ng-click="advanceTeam(3,11)">{{ data.bracket.teams[3] }}</span><button ng-click="addTeam(3)">edit</button>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <div class="vs">vs</div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <span class="seed">5</span>
+          <span class="team" ng-click="advanceTeam(4,11)">{{ data.bracket.teams[4] }}</span><button ng-click="addTeam(4)">edit</button>
+        </div>
+      </div><!--
+      --><div class="col-1-5">
+        <!-- LEFT SEMI FINAL -->
+        <div class="matchup">
+          <span class="team" ng-click="advanceTeam(8,12)">{{ data.bracket.teams[8] }}</span>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <div class="vs">vs</div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <span class="team" ng-click="advanceTeam(11,12)">{{ data.bracket.teams[11] }}</span>
+        </div>
+      </div><!--
+      --><div class="col-1-5">
+        <!-- CHAMPIONSHIP -->
+        <div class="champ">{{ data.bracket.teams[14] }}</div>
+        <div class="matchup">
+          <span class="team" ng-click="advanceTeam(12,14)">{{ data.bracket.teams[12] }}</span>
+          <div class="vs">vs</div>
+          <span class="team" ng-click="advanceTeam(13,14)">{{ data.bracket.teams[13] }}</span>
+        </div>
+      </div><!--
+      --><div class="col-1-5">
+        <!-- RIGHT SEMI FINAL -->
+        <div class="matchup">
+          <span class="team" ng-click="advanceTeam(9,13)">{{ data.bracket.teams[9] }}</span>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <div class="vs">vs</div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <span class="team" ng-click="advanceTeam(10,13)">{{ data.bracket.teams[10] }}</span>
+        </div>
+      </div><!--
+      --><div class="col-1-5">
+        <!-- RIGHT SIDE BRACKET -->
+        <div class="matchup">
+          <span class="seed">2</span>
+          <span class="team" ng-click="advanceTeam(1,9)">{{ data.bracket.teams[1] }}</span><button ng-click="addTeam(1)">edit</button>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <div class="vs">vs</div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <span class="seed">7</span>
+          <span class="team" ng-click="advanceTeam(6,9)">{{ data.bracket.teams[6] }}</span><button ng-click="addTeam(6)">edit</button>
+        </div>
+        <div class="matchup">
+          <span class="seed">3</span>
+          <span class="team" ng-click="advanceTeam(2,10)">{{ data.bracket.teams[2] }}</span><button ng-click="addTeam(2)">edit</button>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <div class="vs">vs</div>
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+          <span class="seed">6</span>
+          <span class="team" ng-click="advanceTeam(5,10)">{{ data.bracket.teams[5] }}</span><button ng-click="addTeam(5)">edit</button>
+        </div>
+      </div>
+    </div>
