@@ -1,5 +1,6 @@
 angular.module('bracketbuilder', [
-  'bracket.services'
+  'bracket.services',
+  'bracket.brackets'
 ])
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
