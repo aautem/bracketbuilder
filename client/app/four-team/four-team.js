@@ -7,7 +7,7 @@ angular.module('bracket.four', [])
     console.log('GATHERING BRACKETS...');
 
     // REPLACE THIS WITH VAR WINDOW.LOADEDBRACKET
-    Brackets.getOne("NFL Playoffs")
+    Brackets.getOne(window.loadedBracket)
       .then(function(bracket) {
         console.log('INCOMING BRACKET:', bracket);
         $scope.data.bracket = bracket;
@@ -19,4 +19,9 @@ angular.module('bracket.four', [])
 
   $scope.getOne();
   console.log('FOUR TEAM CONTROLLER SCOPE DATA:', $scope.data);
+
+  $scope.advanceTeam = function(curIndex, nextIndex) {
+    console.log('ADVANCING TEAM...');
+    $scope.data.bracket.teams[nextIndex] = $scope.data.bracket.teams[curIndex];
+  };
 });

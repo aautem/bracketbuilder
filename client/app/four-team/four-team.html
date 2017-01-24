@@ -2,7 +2,7 @@
       <div class="nav">
         <ul>
           <li>
-            <a href="/#">My Brackets</a>
+            <a href="/#/brackets">My Brackets</a>
           </li>
           <li>
             <a href="/#">Save</a>
@@ -13,36 +13,36 @@
         <!-- LEFT SIDE BRACKET -->
         <div class="matchup">
           <span class="seed">1</span>
-          <span class="team">{{ data.bracket.teams[0] }}</span>
+          <span class="team" ng-click="advanceTeam(0,4)">{{ data.bracket.teams[0] }}</span>
           <div class="spacer"></div>
           <div class="spacer"></div>
           <div class="vs">vs</div>
           <div class="spacer"></div>
           <div class="spacer"></div>
           <span class="seed">4</span>
-          <span class="team">{{ data.bracket.teams[3] }}</span>
+          <span class="team" ng-click="advanceTeam(3,4)">{{ data.bracket.teams[3] }}</span>
         </div>
       </div><!--
       --><div class="col-1-3">
         <div class="champ">{{ data.bracket.teams[6] }}</div>
         <div class="matchup">
-          <span class="team">{{ data.bracket.teams[4] }}</span>
+          <span class="team" ng-click="advanceTeam(4,6)">{{ data.bracket.teams[4] }}</span>
           <div class="vs">vs</div>
-          <span class="team">{{ data.bracket.teams[5] }}</span>
+          <span class="team" ng-click="advanceTeam(5,6)">{{ data.bracket.teams[5] }}</span>
         </div>
       </div><!--
       --><div class="col-1-3">
         <!-- RIGHT SIDE BRACKET -->
         <div class="matchup">
           <span class="seed">2</span>
-          <span class="team">{{ data.bracket.teams[1] }}</span>
+          <span class="team" ng-click="advanceTeam(1,5)">{{ data.bracket.teams[1] }}</span>
           <div class="spacer"></div>
           <div class="spacer"></div>
           <div class="vs">vs</div>
           <div class="spacer"></div>
           <div class="spacer"></div>
           <span class="seed">3</span>
-          <span class="team">{{ data.bracket.teams[2] }}</span>
+          <span class="team" ng-click="advanceTeam(2,5)">{{ data.bracket.teams[2] }}</span>
         </div>
       </div>
     </div>

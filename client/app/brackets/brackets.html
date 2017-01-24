@@ -2,15 +2,16 @@
   <div class="nav">
     <ul>
       <li>
-        <a href="/#">My Brackets</a>
+        <a href="/#/brackets">My Brackets</a>
       </li>
       <li>
         <a href="/#">Create</a>
       </li>
     </ul>
   </div>
-  <div class="bracket" ng-repeat="bracket in data.brackets">
+  <br>
+  <a href='/#/mybracket' class="bracket" ng-repeat="bracket in data.brackets" ng-click="setLoadedBracket(bracket.name)">
     <!-- BRACKETS DISPLAYED HERE -->
     {{ bracket.name }}
-  </div>
+  </a>
 </div>
