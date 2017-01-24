@@ -8,11 +8,6 @@ var app = express();
 
 // connect to database
 mongoose.connect('mongodb://localhost/bracketbuilder');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.on('open', function() {
-  console.log('Database connected!');
-});
 
 // set server port
 app.set('port', (process.env.PORT || 8000));
@@ -29,3 +24,5 @@ require('./config/routes.js')(app, express);
 app.listen(app.get('port'), function() {
   console.log('Listening on port', app.get('port'));
 });
+
+module.exports = app;

@@ -4,8 +4,11 @@ angular.module('bracket.brackets', [])
   $scope.data = {};
 
   $scope.getAll = function() {
+    console.log('GATHERING BRACKETS...');
+
     Brackets.getAll()
       .then(function(brackets) {
+        console.log('INCOMING BRACKETS:', brackets);
         $scope.data.brackets = brackets;
       })
       .catch(function(err) {
@@ -14,4 +17,9 @@ angular.module('bracket.brackets', [])
   };
 
   $scope.getAll();
+  console.log('BRACKETS CONTROLLER SCOPE DATA:', $scope.data);
+})
+.controller('CreationController', function($scope, Brackets) {
+  $scope.data = {};
+  console.log('CREATION CONTROLLER SCOPE DATA:', $scope.data);
 });
