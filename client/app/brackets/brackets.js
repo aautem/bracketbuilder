@@ -22,8 +22,4 @@ angular.module('bracket.brackets', [])
   $scope.setLoadedBracket = function(name) {
     window.loadedBracket = name;
   };
-})
-.controller('CreationController', function($scope, Brackets) {
-  $scope.data = {};
-  console.log('CREATION CONTROLLER SCOPE DATA:', $scope.data);
 });

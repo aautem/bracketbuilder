@@ -39,6 +39,7 @@ body {
 
 .nav li a:hover {
   background-color: black;
+  color: white;
 }
 
 .matchup {
@@ -71,4 +72,11 @@ body {
   font-size: 24px;
   border-radius: 5px;
   padding: 5px;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 36px;
+  text-align: center;
+  width: 100%;
 }

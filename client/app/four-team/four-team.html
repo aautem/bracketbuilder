@@ -5,22 +5,26 @@
             <a href="/#/brackets">My Brackets</a>
           </li>
           <li>
-            <a href="/#">Save</a>
+            <a ng-click="saveBracket()">Save</a>
           </li>
         </ul>
+      </div>
+      <div class="title">
+        {{ data.bracket.name }}
+        <button ng-click="addTitle()">edit</button>
       </div>
       <div class="col-1-3">
         <!-- LEFT SIDE BRACKET -->
         <div class="matchup">
           <span class="seed">1</span>
-          <span class="team" ng-click="advanceTeam(0,4)">{{ data.bracket.teams[0] }}</span>
+          <span class="team" ng-click="advanceTeam(0,4)">{{ data.bracket.teams[0] }}</span><button ng-click="addTeam(0)">edit</button>
           <div class="spacer"></div>
           <div class="spacer"></div>
           <div class="vs">vs</div>
           <div class="spacer"></div>
           <div class="spacer"></div>
           <span class="seed">4</span>
-          <span class="team" ng-click="advanceTeam(3,4)">{{ data.bracket.teams[3] }}</span>
+          <span class="team" ng-click="advanceTeam(3,4)">{{ data.bracket.teams[3] }}</span><button ng-click="addTeam(3)">edit</button>
         </div>
       </div><!--
       --><div class="col-1-3">
@@ -35,14 +39,14 @@
         <!-- RIGHT SIDE BRACKET -->
         <div class="matchup">
           <span class="seed">2</span>
-          <span class="team" ng-click="advanceTeam(1,5)">{{ data.bracket.teams[1] }}</span>
+          <span class="team" ng-click="advanceTeam(1,5)">{{ data.bracket.teams[1] }}</span><button ng-click="addTeam(1)">edit</button>
           <div class="spacer"></div>
           <div class="spacer"></div>
           <div class="vs">vs</div>
           <div class="spacer"></div>
           <div class="spacer"></div>
           <span class="seed">3</span>
-          <span class="team" ng-click="advanceTeam(2,5)">{{ data.bracket.teams[2] }}</span>
+          <span class="team" ng-click="advanceTeam(2,5)">{{ data.bracket.teams[2] }}</span><button ng-click="addTeam(2)">edit</button>
         </div>
       </div>
     </div>
