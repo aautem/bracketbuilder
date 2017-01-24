@@ -38,12 +38,14 @@ body {
 }
 
 .nav li a:hover {
-  background-color: red;
+  background-color: black;
 }
 
 .matchup {
   border: 1px solid black;
   border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
 }
 
 .spacer {
@@ -53,6 +55,8 @@ body {
 .champ {
   height: 35px;
   border: 1px solid black;
+  margin: 5px;
+  padding: 5px;
 }
 
 .bracket {
