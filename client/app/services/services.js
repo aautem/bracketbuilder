@@ -14,6 +14,18 @@ angular.module('bracket.services', [])
     })
   };
 
+  var getOne = function(name) {
+    console.log('GRABBING BRACKET IN FACTORY...');
+
+    return $http({
+      method: 'GET',
+      url: '/' + name
+    })
+    .then(function(res) {
+      return res.data;
+    })
+  };
+
   var create = function(bracket) {
     console.log('CREATING BRACKET IN FACTORY...')
 
@@ -29,6 +41,7 @@ angular.module('bracket.services', [])
 
   return {
     getAll: getAll,
+    getOne: getOne,
     create: create
   };
 

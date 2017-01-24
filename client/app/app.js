@@ -9,6 +9,10 @@ angular.module('bracketbuilder', [
       templateUrl: 'app/brackets/brackets.html',
       controller: 'BracketsController'
     })
+    .when('/mybracket' {
+      templateUrl: 'app/four-team/four-team.html',
+      controller: 'FourTeamController'
+    })
     .otherwise(
       '/brackets'
     )
