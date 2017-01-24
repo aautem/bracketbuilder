@@ -3,6 +3,7 @@ var Bracket = require('./bracketModel.js');
 
 var findBrackets = Q.nbind(Bracket.find, Bracket);
 var createBracket = Q.nbind(Bracket.create, Bracket);
+var getBracket = Q.nbind(Bracket.findOne, Bracket);
 
 module.exports = {
 
@@ -34,6 +35,19 @@ module.exports = {
 
     createBracket(newBracket);
     res.send(newBracket);
+  },
+
+  getBracket: function(req, res, next) {
+    console.log('GRABBING YOUR BRACKET...');
+
+    getBracket({name: req.params.name})
+      .then(function(bracket) {
+        console.log('BRACKET FOUND!', bracket);
+        res.json(bracket);
+      })
+      .fail(function(err) {
+        next(err);
+      });
   }
 
 };

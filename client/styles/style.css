@@ -4,6 +4,7 @@ body {
 
 .row {
   width: 100%;
+  margin: 5px;
 }
 
 .col-1-3 {
@@ -14,8 +15,7 @@ body {
 .nav {
   width: 240px;
   height: 40px;
-  background: black;
-  color: white;
+  background: white;
 }
 
 .nav ul {
@@ -56,7 +56,12 @@ body {
 }
 
 .bracket {
-  width: 100%;
-  height: 50px;
-  border: 1px solid black;
+  width: 50%;
+  height: 35px;
+  border: 1px solid white;
+  margin: 5px;
+  color: white;
+  font-size: 24px;
+  border-radius: 5px;
+  padding: 5px;
 }
