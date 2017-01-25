@@ -17,7 +17,10 @@ angular.module('bracket.four', [])
   };
 
   $scope.getOne();
-  console.log('FOUR TEAM CONTROLLER SCOPE DATA:', $scope.data);
+
+  $scope.remove = function(index) {
+    $scope.data.bracket.teams[index] = undefined;
+  };
 
   $scope.advanceTeam = function(curIndex, nextIndex) {
     console.log('ADVANCING TEAM...');

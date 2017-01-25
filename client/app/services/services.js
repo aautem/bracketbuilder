@@ -1,6 +1,6 @@
 angular.module('bracket.services', [])
 
-.factory('Brackets', function($http) {
+.factory('Brackets', function($http, $rootScope, $location) {
 
   var getAll = function() {
     console.log('RETURNING BRACKETS IN FACTORY...');
@@ -22,7 +22,13 @@ angular.module('bracket.services', [])
       url: '/' + name
     })
     .then(function(res) {
-      return res.data;
+      console.log('LOCATION PATH:', $location.path);
+      if (res.data.size === 8 && window.location.hash !== '#/eightteam') {
+        // REDIRECT TO EIGHTTEAM BRACKET!
+        $location.path('/eightteam');
+      } else {
+        return res.data;
+      }
     })
   };
 

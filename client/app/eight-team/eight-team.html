@@ -28,7 +28,7 @@
           <div class="team">
             <span class="seed">1</span>
             <span ng-click="advanceTeam(0,8)">{{ data.bracket.teams[0] }}</span>
-            <button ng-click="addTeam(0)">^</button>
+            <button ng-click="addTeam(0)">a</button>
           </div>
 
           <div class="spacer"></div>
@@ -40,7 +40,7 @@
           <div class="team">
             <span class="seed">8</span>
             <span ng-click="advanceTeam(7,8)">{{ data.bracket.teams[7] }}</span>
-            <button ng-click="addTeam(7)">^</button>
+            <button ng-click="addTeam(7)">a</button>
           </div>
 
         </div>
@@ -49,7 +49,7 @@
           <div class="team">
             <span class="seed">4</span>
             <span ng-click="advanceTeam(3,11)">{{ data.bracket.teams[3] }}</span>
-            <button ng-click="addTeam(3)">^</button>
+            <button ng-click="addTeam(3)">a</button>
           </div>
 
           <div class="spacer"></div>
@@ -61,7 +61,7 @@
           <div class="team">
             <span class="seed">5</span>
             <span ng-click="advanceTeam(4,11)">{{ data.bracket.teams[4] }}</span>
-            <button ng-click="addTeam(4)">^</button>
+            <button ng-click="addTeam(4)">a</button>
           </div>
 
         </div>
@@ -72,6 +72,7 @@
 
           <div class="team">
             <span ng-click="advanceTeam(8,12)">{{ data.bracket.teams[8] }}</span>
+            <button ng-click="remove(8)">r</button>
           </div>
 
           <div class="spacer"></div>
@@ -80,24 +81,27 @@
 
           <div class="team">
             <span ng-click="advanceTeam(11,12)">{{ data.bracket.teams[11] }}</span>
+            <button ng-click="remove(11)">r</button>
           </div>
 
         </div>
       </div><!--
       --><div class="col-1-5">
         <!-- CHAMPIONSHIP -->
-        <div class="champ">{{ data.bracket.teams[14] }}</div>
+        <div class="champ">{{ data.bracket.teams[14] }}<button ng-click="remove(14)">r</button></div>
 
         <div class="matchup">
 
           <div class="team">
             <span ng-click="advanceTeam(12,14)">{{ data.bracket.teams[12] }}</span>
+            <button ng-click="remove(12)">r</button>
           </div>
 
           <div class="vs">vs</div>
 
           <div class="team">
             <span ng-click="advanceTeam(13,14)">{{ data.bracket.teams[13] }}</span>
+            <button ng-click="remove(13)">r</button>
           </div>
 
         </div>
@@ -108,6 +112,7 @@
 
           <div class="team">
             <span ng-click="advanceTeam(9,13)">{{ data.bracket.teams[9] }}</span>
+            <button ng-click="remove(9)">r</button>
           </div>
 
           <div class="spacer"></div>
@@ -116,6 +121,7 @@
 
           <div class="team">
             <span ng-click="advanceTeam(10,13)">{{ data.bracket.teams[10] }}</span>
+            <button ng-click="remove(10)">r</button>
           </div>
 
         </div>
@@ -127,7 +133,7 @@
           <div class="team">
             <span class="seed">2</span>
             <span ng-click="advanceTeam(1,9)">{{ data.bracket.teams[1] }}</span>
-            <button ng-click="addTeam(1)">^</button>
+            <button ng-click="addTeam(1)">a</button>
           </div>
 
           <div class="spacer"></div>
@@ -139,7 +145,7 @@
           <div class="team">
             <span class="seed">7</span>
             <span ng-click="advanceTeam(6,9)">{{ data.bracket.teams[6] }}</span>
-            <button ng-click="addTeam(6)">^</button>
+            <button ng-click="addTeam(6)">a</button>
           </div>
 
         </div>
@@ -148,7 +154,7 @@
           <div class="team">
             <span class="seed">3</span>
             <span ng-click="advanceTeam(2,10)">{{ data.bracket.teams[2] }}</span>
-            <button ng-click="addTeam(2)">^</button>
+            <button ng-click="addTeam(2)">a</button>
           </div>
 
           <div class="spacer"></div>
@@ -160,7 +166,7 @@
           <div class="team">
             <span class="seed">6</span>
             <span ng-click="advanceTeam(5,10)">{{ data.bracket.teams[5] }}</span>
-            <button ng-click="addTeam(5)">^</button>
+            <button ng-click="addTeam(5)">a</button>
           </div>
 
         </div>
