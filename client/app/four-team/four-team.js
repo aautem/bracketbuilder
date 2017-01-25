@@ -24,6 +24,11 @@ angular.module('bracket.four', [])
     $scope.data.bracket.teams[nextIndex] = $scope.data.bracket.teams[curIndex];
   };
 
+  $scope.addTeam = function(index) {
+    $scope.data.bracket.teams[index] = prompt('Add a team!', 'team name');
+    console.log('Teams in bracket:', $scope.data.bracket.teams);
+  };
+
   $scope.saveBracket = function() {
     console.log('Updating database...');
     // UPDATE BRACKET
