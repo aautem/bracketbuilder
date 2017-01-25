@@ -3,8 +3,6 @@ angular.module('bracket.services', [])
 .factory('Brackets', function($http, $rootScope, $location) {
 
   var getAll = function() {
-    console.log('RETURNING BRACKETS IN FACTORY...');
-
     return $http({
       method: 'GET',
       url: '/api/brackets'
@@ -15,16 +13,14 @@ angular.module('bracket.services', [])
   };
 
   var getOne = function(name) {
-    console.log('GRABBING BRACKET IN FACTORY...');
-
     return $http({
       method: 'GET',
       url: '/' + name
     })
     .then(function(res) {
-      console.log('LOCATION PATH:', $location.path);
       if (res.data.size === 8 && window.location.hash !== '#/eightteam') {
         // REDIRECT TO EIGHTTEAM BRACKET!
+        console.log('REDIRECTING TO EIGHT TEAM LAYOUT...');
         $location.path('/eightteam');
       } else {
         return res.data;
@@ -33,8 +29,6 @@ angular.module('bracket.services', [])
   };
 
   var create = function(bracket) {
-    console.log('CREATING BRACKET IN FACTORY...');
-
     return $http({
       method: 'POST',
       url: '/api/brackets',
@@ -46,7 +40,6 @@ angular.module('bracket.services', [])
   };
 
   var update = function(bracket) {
-    console.log('UPDATING BRACKET IN FACTORY...');
 
     return $http({
       method: 'POST',

@@ -7,8 +7,6 @@ angular.module('bracket.create', [])
   $scope.data.bracket.teams = [];
   $scope.data.bracket.size = 4;
 
-  console.log('CREATION CONTROLLER SCOPE DATA:', $scope.data);
-
   $scope.addTitle = function() {
     $scope.data.bracket.name = prompt('Name your bracket!', 'bracket name');
     console.log('New bracket name:', $scope.data.bracket.name);
@@ -22,6 +20,10 @@ angular.module('bracket.create', [])
   $scope.advanceTeam = function(curIndex, nextIndex) {
     console.log('ADVANCING TEAM...');
     $scope.data.bracket.teams[nextIndex] = $scope.data.bracket.teams[curIndex];
+  };
+
+  $scope.remove = function(index) {
+    $scope.data.bracket.teams[index] = undefined;
   };
 
   $scope.saveBracket = function() {

@@ -8,7 +8,6 @@ var getBracket = Q.nbind(Bracket.findOne, Bracket);
 module.exports = {
 
   allBrackets: function(req, res, next) {
-    console.log('IN BRACKET CONTROLLER...');
 
     findBrackets({})
       .then(function(brackets) {
@@ -21,7 +20,6 @@ module.exports = {
   },
 
   newBracket: function(req, res, next) {
-    console.log('POSTING TO BRACKET CONTROLLER...');
 
     var name = req.body.name;
     var teams = req.body.teams;
@@ -38,7 +36,6 @@ module.exports = {
   },
 
   updateBracket: function(req, res, next) {
-    console.log('UPDATING IN BRACKET CONTROLLER...');
 
     var name = req.body.name;
     var teams = req.body.teams;
@@ -60,7 +57,6 @@ module.exports = {
   },
 
   getBracket: function(req, res, next) {
-    console.log('GRABBING YOUR BRACKET...');
 
     getBracket({name: req.params.name})
       .then(function(bracket) {

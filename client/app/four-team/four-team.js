@@ -4,11 +4,11 @@ angular.module('bracket.four', [])
   $scope.data = {};
 
   $scope.getOne = function() {
-    console.log('GATHERING BRACKETS...');
+    console.log('GRABBING BRACKET...');
 
     Brackets.getOne(window.loadedBracket)
       .then(function(bracket) {
-        console.log('INCOMING BRACKET:', bracket);
+        console.log(bracket);
         $scope.data.bracket = bracket;
       })
       .catch(function(err) {

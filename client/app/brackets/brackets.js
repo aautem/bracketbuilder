@@ -8,7 +8,6 @@ angular.module('bracket.brackets', [])
 
     Brackets.getAll()
       .then(function(brackets) {
-        console.log('INCOMING BRACKETS:', brackets);
         $scope.data.brackets = brackets;
       })
       .catch(function(err) {
@@ -17,7 +16,6 @@ angular.module('bracket.brackets', [])
   };
 
   $scope.getAll();
-  console.log('BRACKETS CONTROLLER SCOPE DATA:', $scope.data);
 
   $scope.setLoadedBracket = function(name) {
     window.loadedBracket = name;
