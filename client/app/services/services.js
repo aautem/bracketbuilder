@@ -27,7 +27,7 @@ angular.module('bracket.services', [])
   };
 
   var create = function(bracket) {
-    console.log('CREATING BRACKET IN FACTORY...')
+    console.log('CREATING BRACKET IN FACTORY...');
 
     return $http({
       method: 'POST',
@@ -39,10 +39,24 @@ angular.module('bracket.services', [])
     });
   };
 
+  var update = function(bracket) {
+    console.log('UPDATING BRACKET IN FACTORY...');
+
+    return $http({
+      method: 'POST',
+      url: '/api/update',
+      data: bracket
+    })
+    .then(function(res) {
+      return res;
+    });
+  };
+
   return {
     getAll: getAll,
     getOne: getOne,
-    create: create
+    create: create,
+    update: update
   };
 
 });

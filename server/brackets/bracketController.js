@@ -37,6 +37,28 @@ module.exports = {
     res.send(newBracket);
   },
 
+  updateBracket: function(req, res, next) {
+    console.log('UPDATING IN BRACKET CONTROLLER...');
+
+    var name = req.body.name;
+    var teams = req.body.teams;
+    var size = req.body.size;
+
+    var newBracket = {
+      name: name,
+      teams: teams,
+      size: size
+    };
+
+    Bracket.findOneAndUpdate({name: name}, newBracket, function(err, bracket) {
+      if (err) {
+        console.error(err);
+      } else {
+        res.send(bracket);
+      }
+    });
+  },
+
   getBracket: function(req, res, next) {
     console.log('GRABBING YOUR BRACKET...');
 
