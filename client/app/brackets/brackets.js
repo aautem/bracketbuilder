@@ -1,6 +1,6 @@
 angular.module('bracket.brackets', [])
 
-.controller('BracketsController', function($scope, Brackets) {
+.controller('BracketsController', function($scope, $window, Brackets) {
   $scope.data = {};
 
   $scope.getAll = function() {
@@ -20,5 +20,6 @@ angular.module('bracket.brackets', [])
 
   $scope.setLoadedBracket = function(name) {
     window.loadedBracket = name;
+    $window.location.href = '/#/mybracket';
   };
 });

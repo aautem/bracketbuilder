@@ -28,9 +28,13 @@
 </nav>
 
 <!-- BOOTSTRAP BODY -->
-<div>
-  <a href='/#/mybracket' class="bracket" ng-repeat="bracket in data.brackets" ng-click="setLoadedBracket(bracket.name)">
-    <!-- BRACKETS DISPLAYED HERE -->
-    {{ bracket.name }}
-  </a>
+<div class="container-fluid text-center">
+  <div class="row" ng-repeat="bracket in data.brackets">
+    <div class="col-md-4">
+      <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="setLoadedBracket(bracket.name)">
+        {{bracket.name}}
+      </button>
+    </div>
+    <div class="col-md-8"></div>
+  </div>
 </div>
