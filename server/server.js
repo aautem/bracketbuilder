@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 // create server
 var app = express();
 
-var mongodbUri = 'mongodb://heroku_wtmxnf01:ke5jtrirq9qt536f1v6u8i9vbl@ds127439.mlab.com:27439/heroku_wtmxnf01';
+var mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/';
 
 // connect to database
 mongoose.connect(mongodbUri);

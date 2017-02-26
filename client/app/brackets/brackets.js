@@ -8,6 +8,7 @@ angular.module('bracket.brackets', [])
 
     Brackets.getAll()
       .then(function(brackets) {
+        console.log('Brackets:', brackets);
         $scope.data.brackets = brackets;
       })
       .catch(function(err) {
