@@ -1,143 +1,32 @@
-body {
-  background: grey;
+.team-top {
+  border-bottom: 2px solid black;
 }
 
-h1 {
-  text-align: left;
-  font-size: 48px;
-  margin: 0;
+.team-bt {
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
-.title {
-  background: #F0F8FF;
-  margin: 0;
-  padding: 5px;
+.team-bt-lt {
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
 }
 
-.row {
-  width: 100%;
-  margin: auto;
-  padding: 5px;
+.team-bt-rt {
+  border-bottom: 2px solid black;
+  border-left: 2px solid black
 }
 
-.col-1-3 {
-  width: 33.3%;
-  display: inline-block;
-  margin: auto;
+.vs-mid {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
-.col-1-5 {
-  width: 19%;
-  display: inline-block;
-  margin: auto;
+.vs-lt {
+  border-right: 2px solid black;
 }
 
-.nav {
-  width: 240px;
-  height: 40px;
-  background: #F0F8FF;
-  margin-bottom: 10px;
-}
-
-.nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.nav li {
-  float: left;
-}
-
-.nav li a {
-  width: 100px;
-  height: 20px;
-  line-height: 20px;
-  padding: 10px;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-}
-
-.nav li a:hover {
-  background-color: #9BCEFF;
-}
-
-.nav li a:visited {
-  color: black;
-}
-
-.team {
-  margin: auto;
-  text-align: center;
-  padding: 5px;
-  font-weight: 600;
-  background: #9BCEFF;
-  border-radius: 5px;
-  min-height: 25px;
-}
-
-.seed {
-  float: left;
-}
-
-.matchup {
-  border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
-  min-height: 100px;
-  vertical-align: top;
-  background: #4E677F;
-}
-
-.vs {
-  width: 100%;
-  margin: auto;
-  text-align: center;
-}
-
-.spacer {
-  height: 10px;
-}
-
-.champ {
-  font-weight: 800;
-  height: 35px;
-  border: 5px solid #4E677F;
-  font-size: 32px;
-  margin: auto;
-  text-align: center;
-  padding: 5px;
-  border-radius: 5px;
-  background: #F0F8FF;
-}
-
-.bracket {
-  width: 50%;
-  height: 35px;
-  border: 3px solid white;
-  margin: 5px;
-  color: white;
-  font-size: 24px;
-  border-radius: 5px;
-  padding: 10px;
-  text-decoration: none;
-  background: #4E677F;
-  color: white;
-}
-
-.name {
-  min-height: 40px;
-  padding: 10px;
-  font-weight: 800;
-  font-size: 36px;
-  width: 75%;
-  border: 3px solid white;
-  margin: auto;
-  background: #4E677F;
-  color: white;
-}
-
-button {
-  float: right;
+.vs-rt {
+  border-left: 2px solid black;
 }
