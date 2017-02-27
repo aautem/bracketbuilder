@@ -32,6 +32,18 @@ module.exports = {
         res.send(data);
       }
     });
+  },
+
+  deleteBracket: function(req, res) {
+    console.log('Bracket (server):', req.params.id);
+    let id = req.params.id;
+    Bracket.remove({_id: id}, function(err) {
+      if (err) {
+        console.error(err);
+      } else {
+        res.send('Bracket Deleted.');
+      }
+    });
   }
 
 };

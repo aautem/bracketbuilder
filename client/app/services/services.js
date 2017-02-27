@@ -26,13 +26,13 @@ angular.module('bracket.services', [])
     });
   };
 
-  let deleteBracket = function(bracket) {
+  let deleteBracket = function(bracketID) {
     return $http({
       method: 'DELETE',
-      url: '/api/brackets',
-      data: bracket
-    }).then(function(res) {
-      console.log(res.data);
+      url: '/api/brackets/' + bracketID
+    })
+    .then(function(res) {
+      return res.data;
     });
   }
 
