@@ -4,11 +4,6 @@ angular.module('bracket.four', [])
 
   $scope.data = {}; // Initialize data to empty object
 
-  $scope.addTeam = function(index) {
-    $scope.data.bracket.teams[index] = prompt('Add a team!', 'team name');
-    console.log('Teams in bracket:', $scope.data.bracket.teams);
-  };
-
   $scope.remove = function(index) {
     console.log('Removing Team.')
     $scope.data.bracket.teams[index] = undefined;

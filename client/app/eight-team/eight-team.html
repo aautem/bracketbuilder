@@ -1,4 +1,4 @@
-<!-- BOOTSTRAP NAVIGATION -->
+<!-- START NAVIGATION -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -15,184 +15,513 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="#/brackets">My Brackets <span class="sr-only">(current)</span></a></li>
-        <li class="active"><a href="#/mybracket">{{data.bracket.name || 'New Bracket'}}</a></li>
-        <li><a href="#/mybracket" ng-click="saveBracket()">Save</a></li>
+        <li class="dropdown active">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Create <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#/four-team">4 Teams</a></li>
+            <li><a href="#/eight-team">8 Teams</a></li>
+            <li><a href="#/sixteen-team">16 Teams</a></li>
+            <li><a href="#/thirty-two-team">32 Teams</a></li>
+            <li><a href="#/sixty-four-team">64 Teams</a></li>
+          </ul>
+        </li>
+        <li><a href="#/eight-team" ng-click="saveBracket()">Save</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="row">
-      <div class="nav">
-        <ul>
-          <li>
-            <a href="/#/brackets">My Brackets</a>
-          </li>
-          <li>
-            <a ng-click="saveBracket()">Save</a>
-          </li>
-        </ul>
+<!-- BRACKET TITLE DISPLAY -->
+<div class="container-fluid text-center">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="well text-primary">
+        <span ng-if="data.bracket.name" class="title">{{data.bracket.name}}</span>
+        <span ng-if="!data.bracket.name" class="text-muted">
+          Add bracket title here
+        </span>
+        <button ng-if="!data.bracket.name" type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#bracketTitle">
+          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+        </button>
       </div>
-      <div>
-        <select>
-          <option value="4">4 Teams</option>
-          <option value="8" selected>8 Teams</option>
-          <option value="16">16 Teams</option>
-          <option value="32">32 Teams</option>
-        </select>
-      </div>
-      <div class="name">
-        {{ data.bracket.name }}
-        <button ng-click="addTitle()">Edit Bracket Title</button>
-      </div>
-      <div class="col-1-5">
-        <!-- LEFT SIDE BRACKET -->
-        <div class="matchup">
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><br></div>
+  </div>
 
-          <div class="team">
-            <span class="seed">1</span>
-            <span ng-click="advanceTeam(0,8)">{{ data.bracket.teams[0] }}</span>
-            <button ng-click="addTeam(0)">a</button>
-          </div>
+<!-- START TOURNAMENT BRACKET -->
+<!-- ROW 01 -->
+  <div class="row">
+    <div class="col-md-1"></div>
 
-          <div class="spacer"></div>
-          <div class="spacer"></div>
-          <div class="vs">vs</div>
-          <div class="spacer"></div>
-          <div class="spacer"></div>
+<!-- #1 SEED / TOP (TOP-LT) -->
+    <div class="col-md-2 team-top">
+      <span class="seed-lt">1 </span>
+      <button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#oneSeed">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[0]}}</span>
+      <span ng-if="!data.bracket.teams[0]" class="text-muted pad-rt">
+        Team One
+      </span>
+      <button type="button" class="btn btn-link btn-xs adv-lt" ng-if="data.bracket.teams[0]" ng-click="advanceTeam(0,8)">
+        <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+      </button>
+    </div>
 
-          <div class="team">
-            <span class="seed">8</span>
-            <span ng-click="advanceTeam(7,8)">{{ data.bracket.teams[7] }}</span>
-            <button ng-click="addTeam(7)">a</button>
-          </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2"></div>
 
-        </div>
-        <div class="matchup">
+<!-- #2 SEED / TOP (TOP-RT) -->
+    <div class="col-md-2 team-top">
+      <button type="button" class="btn btn-link btn-xs adv-rt" ng-if="data.bracket.teams[1]" ng-click="advanceTeam(1,9)">
+        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[1]}}</span>
+      <span ng-if="!data.bracket.teams[1]" class="text-muted pad-lt">
+        Team Two
+      </span>
+      <button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#twoSeed">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </button>
+      <span class="seed-rt"> 2</span>
+    </div>
 
-          <div class="team">
-            <span class="seed">4</span>
-            <span ng-click="advanceTeam(3,11)">{{ data.bracket.teams[3] }}</span>
-            <button ng-click="addTeam(3)">a</button>
-          </div>
+    <div class="col-md-1"></div>
+  </div>
+<!-- ROW 02 -->
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2 vs-lt">vs</div>
 
-          <div class="spacer"></div>
-          <div class="spacer"></div>
-          <div class="vs">vs</div>
-          <div class="spacer"></div>
-          <div class="spacer"></div>
+<!-- SEMI-FINAL TEAM / TOP (LT) -->
+    <div class="col-md-2 team-top">
+      <button type="button" class="btn btn-link btn-xs rm-lt" ng-if="data.bracket.teams[8]" ng-click="remove(8)">
+        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[8]}}</span>
+      <span ng-if="!data.bracket.teams[8]" class="text-muted pad-rt">
+        Semi-Final Team
+      </span>
+      <button type="button" class="btn btn-link btn-xs adv-lt" ng-if="data.bracket.teams[8]" ng-click="advanceTeam(8,12)">
+        <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+      </button>
+    </div>
 
-          <div class="team">
-            <span class="seed">5</span>
-            <span ng-click="advanceTeam(4,11)">{{ data.bracket.teams[4] }}</span>
-            <button ng-click="addTeam(4)">a</button>
-          </div>
+    <div class="col-md-2"></div>
 
-        </div>
-      </div><!--
-      --><div class="col-1-5">
-        <!-- LEFT SEMI FINAL -->
-        <div class="matchup">
+<!-- SEMI-FINAL TEAM / TOP (RT) -->
+    <div class="col-md-2 team-top">
+      <button type="button" class="btn btn-link btn-xs adv-rt" ng-if="data.bracket.teams[9]" ng-click="advanceTeam(9,13)">
+        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[9]}}</span>
+      <span ng-if="!data.bracket.teams[9]" class="text-muted pad-lt">
+        Semi-Final Team
+      </span>
+      <button type="button" class="btn btn-link btn-xs rm" ng-if="data.bracket.teams[9]" ng-click="remove(9)">
+        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+      </button>
+    </div>
 
-          <div class="team">
-            <span ng-click="advanceTeam(8,12)">{{ data.bracket.teams[8] }}</span>
-            <button ng-click="remove(8)">r</button>
-          </div>
+    <div class="col-md-2 vs-rt">vs</div>
+    <div class="col-md-1"></div>
+  </div>
+<!-- ROW 03 -->
+  <div class="row">
+    <div class="col-md-1"></div>
 
-          <div class="spacer"></div>
-          <div class="vs">vs</div>
-          <div class="spacer"></div>
+<!-- #8 SEED / BOT (TOP-LT) -->
+    <div class="col-md-2 team-bt-lt">
+      <span class="seed-lt">8 </span>
+      <button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#eightSeed">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[7]}}</span>
+      <span ng-if="!data.bracket.teams[7]" class="text-muted pad-rt">
+        Team Eight
+      </span>
+      <button type="button" class="btn btn-link btn-xs adv-lt" ng-if="data.bracket.teams[7]" ng-click="advanceTeam(7,8)">
+        <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+      </button>
+    </div>
 
-          <div class="team">
-            <span ng-click="advanceTeam(11,12)">{{ data.bracket.teams[11] }}</span>
-            <button ng-click="remove(11)">r</button>
-          </div>
+    <div class="col-md-2 vs-lt"><br></div>
 
-        </div>
-      </div><!--
-      --><div class="col-1-5">
-        <!-- CHAMPIONSHIP -->
-        <div class="champ">{{ data.bracket.teams[14] }}<button ng-click="remove(14)">r</button></div>
+<!-- CHAMPIONSHIP / TOP (MID) -->
+    <div class="col-md-2 team-top">
+      <button type="button" class="btn btn-link btn-xs adv-rt" ng-if="data.bracket.teams[12]" ng-click="advanceTeam(12,14)">
+        <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[12]}}
+      <span ng-if="!data.bracket.teams[12]" class="text-muted">
+        Final Team
+      </span>
+      <button type="button" class="btn btn-link btn-xs rm" ng-if="data.bracket.teams[12]" ng-click="remove(12)">
+        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+      </button>
+    </div>
 
-        <div class="matchup">
+    <div class="col-md-2 vs-rt"><br></div>
 
-          <div class="team">
-            <span ng-click="advanceTeam(12,14)">{{ data.bracket.teams[12] }}</span>
-            <button ng-click="remove(12)">r</button>
-          </div>
+<!-- #7 SEED / BOT (TOP-RT) -->
+    <div class="col-md-2 team-bt-rt">
+      <button type="button" class="btn btn-link btn-xs adv-rt" ng-if="data.bracket.teams[6]" ng-click="advanceTeam(6,9)">
+        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[6]}}</span>
+      <span ng-if="!data.bracket.teams[6]" class="text-muted pad-lt">
+        Team Seven
+      </span>
+      <button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#sevenSeed">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </button>
+      <span class="seed-rt"> 7</span>
+    </div>
 
-          <div class="vs">vs</div>
+    <div class="col-md-1"></div>
+  </div>
+<!-- ROW 04 -->
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2 vs-lt">vs</div>
+    <div class="col-md-2">vs</div>
+    <div class="col-md-2 vs-rt">vs</div>
+    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
+  </div>
+<!-- ROW 05 -->
+  <div class="row">
+    <div class="col-md-1"></div>
 
-          <div class="team">
-            <span ng-click="advanceTeam(13,14)">{{ data.bracket.teams[13] }}</span>
-            <button ng-click="remove(13)">r</button>
-          </div>
+<!-- #4 SEED / TOP (BOT-LT) -->
+    <div class="col-md-2 team-top">
+      <span class="seed-lt">4 </span>
+      <button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#fourSeed">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[3]}}</span>
+      <span ng-if="!data.bracket.teams[3]" class="text-muted pad-rt">
+        Team Four
+      </span>
+      <button type="button" class="btn btn-link btn-xs adv-lt" ng-if="data.bracket.teams[3]" ng-click="advanceTeam(3,11)">
+        <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+      </button>
+    </div>
 
-        </div>
-      </div><!--
-      --><div class="col-1-5">
-        <!-- RIGHT SEMI FINAL -->
-        <div class="matchup">
+    <div class="col-md-2 vs-lt"><br></div>
 
-          <div class="team">
-            <span ng-click="advanceTeam(9,13)">{{ data.bracket.teams[9] }}</span>
-            <button ng-click="remove(9)">r</button>
-          </div>
+<!-- CHAMPIONSHIP / BOT (MID) -->
+    <div class="col-md-2 team-bt-only">
+      <button type="button" class="btn btn-link btn-xs adv-rt" ng-if="data.bracket.teams[13]" ng-click="advanceTeam(13,14)">
+        <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[13]}}
+      <span ng-if="!data.bracket.teams[13]" class="text-muted">
+        Final Team
+      </span>
+      <button type="button" class="btn btn-link btn-xs rm" ng-if="data.bracket.teams[13]" ng-click="remove(13)">
+        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+      </button>
+    </div>
 
-          <div class="spacer"></div>
-          <div class="vs">vs</div>
-          <div class="spacer"></div>
+    <div class="col-md-2 vs-rt"><br></div>
 
-          <div class="team">
-            <span ng-click="advanceTeam(10,13)">{{ data.bracket.teams[10] }}</span>
-            <button ng-click="remove(10)">r</button>
-          </div>
+<!-- #3 SEED / TOP (BOT-RT) -->
+    <div class="col-md-2 team-top">
+      <button type="button" class="btn btn-link btn-xs adv-rt" ng-if="data.bracket.teams[2]" ng-click="advanceTeam(2,10)">
+        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[2]}}</span>
+      <span ng-if="!data.bracket.teams[2]" class="text-muted pad-lt">
+        Team Three
+      </span>
+      <button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#threeSeed">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </button>
+      <span class="seed-rt"> 3</span>
+    </div>
 
-        </div>
-      </div><!--
-      --><div class="col-1-5">
-        <!-- RIGHT SIDE BRACKET -->
-        <div class="matchup">
+    <div class="col-md-1"></div>
+  </div>
+<!-- ROW 06 -->
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2 vs-lt">vs</div>
 
-          <div class="team">
-            <span class="seed">2</span>
-            <span ng-click="advanceTeam(1,9)">{{ data.bracket.teams[1] }}</span>
-            <button ng-click="addTeam(1)">a</button>
-          </div>
+<!-- SEMI-FINAL TEAM / BOT (BOT-LT) -->
+    <div class="col-md-2 team-bt-lt">
+      <button type="button" class="btn btn-link btn-xs rm-lt" ng-if="data.bracket.teams[11]" ng-click="remove(11)">
+        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[11]}}</span>
+      <span ng-if="!data.bracket.teams[11]" class="text-muted pad-rt">
+        Semi-Final Team
+      </span>
+      <button type="button" class="btn btn-link btn-xs adv-lt" ng-if="data.bracket.teams[11]" ng-click="advanceTeam(11,12)">
+        <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+      </button>
+    </div>
 
-          <div class="spacer"></div>
-          <div class="spacer"></div>
-          <div class="vs">vs</div>
-          <div class="spacer"></div>
-          <div class="spacer"></div>
+    <div class="col-md-2"></div>
 
-          <div class="team">
-            <span class="seed">7</span>
-            <span ng-click="advanceTeam(6,9)">{{ data.bracket.teams[6] }}</span>
-            <button ng-click="addTeam(6)">a</button>
-          </div>
+<!-- SEMI-FINAL TEAM / BOT (BOT-RT) -->
+    <div class="col-md-2 team-bt-rt">
+      <button type="button" class="btn btn-link btn-xs adv-rt" ng-if="data.bracket.teams[10]" ng-click="advanceTeam(10,13)">
+        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[10]}}</span>
+      <span ng-if="!data.bracket.teams[10]" class="text-muted pad-lt">
+        Semi-Final Team
+      </span>
+      <button type="button" class="btn btn-link btn-xs rm" ng-if="data.bracket.teams[10]" ng-click="remove(10)">
+        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+      </button>
+    </div>
 
-        </div>
-        <div class="matchup">
+    <div class="col-md-2 vs-rt">vs</div>
+    <div class="col-md-1"></div>
+  </div>
+<!-- ROW 07 -->
+  <div class="row">
+    <div class="col-md-1"></div>
 
-          <div class="team">
-            <span class="seed">3</span>
-            <span ng-click="advanceTeam(2,10)">{{ data.bracket.teams[2] }}</span>
-            <button ng-click="addTeam(2)">a</button>
-          </div>
+<!-- #5 SEED / BOT (BOT-LT) -->
+    <div class="col-md-2 team-bt-lt">
+      <span class="seed-lt">5 </span>
+      <button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#fiveSeed">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[4]}}</span>
+      <span ng-if="!data.bracket.teams[4]" class="text-muted pad-rt">
+        Team Five
+      </span>
+      <button type="button" class="btn btn-link btn-xs adv-lt" ng-if="data.bracket.teams[4]" ng-click="advanceTeam(4,11)">
+        <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+      </button>
+    </div>
 
-          <div class="spacer"></div>
-          <div class="spacer"></div>
-          <div class="vs">vs</div>
-          <div class="spacer"></div>
-          <div class="spacer"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2"></div>
 
-          <div class="team">
-            <span class="seed">6</span>
-            <span ng-click="advanceTeam(5,10)">{{ data.bracket.teams[5] }}</span>
-            <button ng-click="addTeam(5)">a</button>
-          </div>
+<!-- #6 SEED / BOT (BOT-RT) -->
+    <div class="col-md-2 team-bt-rt">
+      <button type="button" class="btn btn-link btn-xs adv-rt" ng-if="data.bracket.teams[5]" ng-click="advanceTeam(5,10)">
+        <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+      </button>
+      <span>{{data.bracket.teams[5]}}</span>
+      <span ng-if="!data.bracket.teams[5]" class="text-muted pad-lt">
+        Team Six
+      </span>
+      <button type="button" class="btn btn-link btn-xs" data-toggle="modal" data-target="#sixSeed">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      </button>
+      <span class="seed-rt"> 6</span>
+    </div>
 
+    <div class="col-md-1"></div>
+  </div>
+
+<!-- CHAMPION DISPLAY ROW -->
+  <div class="row">
+    <div class="col-md-12"><br></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><br></div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Tournament Champion</div>
+        <div class="panel-body text-info">
+          <span ng-if="data.bracket.teams[14]" class="champ">{{data.bracket.teams[14]}}</span>
+          <span ng-if="!data.bracket.teams[14]" class="text-muted">
+              Winner goes here
+            </span>
+          <button ng-if="data.bracket.teams[14]"type="button" class="btn btn-link btn-xs" ng-click="remove(14)">
+            <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+          </button>
         </div>
       </div>
     </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+
+<!-- BRACKET TITLE MODAL -->
+<div class="modal fade text-center" id="bracketTitle" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Name Your Bracket</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="bracket name" aria-describedby="sizing-addon1" ng-model="data.bracket.name">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ONE SEED MODAL -->
+<div class="modal fade text-center" id="oneSeed" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Team</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="team name" aria-describedby="sizing-addon1" ng-model="data.bracket.teams[0]">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TWO SEED MODAL -->
+<div class="modal fade text-center" id="twoSeed" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Team</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="team name" aria-describedby="sizing-addon1" ng-model="data.bracket.teams[1]">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THREE SEED MODAL -->
+<div class="modal fade text-center" id="threeSeed" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Team</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="team name" aria-describedby="sizing-addon1" ng-model="data.bracket.teams[2]">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOUR SEED MODAL -->
+<div class="modal fade text-center" id="fourSeed" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Team</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="team name" aria-describedby="sizing-addon1" ng-model="data.bracket.teams[3]">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FIVE SEED MODAL -->
+<div class="modal fade text-center" id="fiveSeed" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Team</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="team name" aria-describedby="sizing-addon1" ng-model="data.bracket.teams[4]">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SIX SEED MODAL -->
+<div class="modal fade text-center" id="sixSeed" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Team</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="team name" aria-describedby="sizing-addon1" ng-model="data.bracket.teams[5]">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SEVEN SEED MODAL -->
+<div class="modal fade text-center" id="sevenSeed" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Team</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="team name" aria-describedby="sizing-addon1" ng-model="data.bracket.teams[6]">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EIGHT SEED MODAL -->
+<div class="modal fade text-center" id="eightSeed" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Team</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="team name" aria-describedby="sizing-addon1" ng-model="data.bracket.teams[7]">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
