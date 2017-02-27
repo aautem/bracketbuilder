@@ -1,3 +1,40 @@
+.champ {
+  font-size: 1.5em;
+  padding-left: 35px;
+}
+
+.pad-lt {
+  padding-left: 25px;
+}
+
+.pad-rt {
+  padding-right: 30px;
+}
+
+.seed-lt {
+  font-size: .75em;
+  font-weight: 600;
+  float: left;
+}
+
+.seed-rt {
+  font-size: .75em;
+  font-weight: 600;
+  float: right;
+}
+
+.adv-lt {
+  float: right;
+}
+
+.adv-rt {
+  float: left;
+}
+
+.rm {
+  float: right;
+}
+
 .team-top {
   border-bottom: 2px solid black;
 }
