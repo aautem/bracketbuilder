@@ -2,24 +2,10 @@ angular.module('bracket.brackets', [])
 
 .controller('BracketsController', function($scope, $window, Brackets) {
 
-  Brackets.setBracket(null);
-
-  let getAll = function() {
-    console.log('/brackets');
-
-    Brackets.getAll()
-    .then(function(brackets) {
-      console.log('Brackets:', brackets);
-      $scope.data.brackets = brackets;
-    })
-    .catch(function(err) {
-      console.error(err);
-    });
-  };
-
-  $scope.data = {};
+  $scope.data = {}; // Initialize data to empty object
 
   $scope.loadBracket = function(bracket) {
+    console.log('Loading bracket & rerouting.');
     Brackets.setBracket(bracket);
     if (bracket.size === 4) {
       $window.location.href = '/#/four-team';
@@ -38,6 +24,20 @@ angular.module('bracket.brackets', [])
     }
   };
 
-  getAll();
+  let getAll = function() {
+    console.log('Loading brackets.');
+    Brackets.getAll()
+    .then(function(brackets) {
+      console.log(brackets);
+      $scope.data.brackets = brackets;
+    })
+    .catch(function(err) {
+      console.error(err);
+    });
+  };
+
+  Brackets.setBracket(null); // Reset loaded bracket
+
+  getAll(); // Load all brackets from database
 
 });

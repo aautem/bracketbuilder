@@ -1,25 +1,18 @@
-var Q = require('q');
 var Bracket = require('./bracketModel.js');
-
-var findBrackets = Q.nbind(Bracket.find, Bracket);
-var createBracket = Q.nbind(Bracket.create, Bracket);
-var getBracket = Q.nbind(Bracket.findOne, Bracket);
 
 module.exports = {
 
-  allBrackets: function(req, res, next) {
-
-    findBrackets({})
-      .then(function(brackets) {
-        console.log('BRACKETS FOUND:', brackets);
-        res.json(brackets);
-      })
-      .fail(function(err) {
-        next(err);
-      });
+  allBrackets: function(req, res) {
+    Bracket.find({}, function(err, data) {
+      if (err) {
+        console.error(err);
+      } else {
+        res.send(data);
+      }
+    });
   },
 
-  newBracket: function(req, res, next) {
+  saveBracket: function(req, res) {
 
     var name = req.body.name;
     var teams = req.body.teams;
@@ -35,7 +28,7 @@ module.exports = {
     res.send(newBracket);
   },
 
-  updateBracket: function(req, res, next) {
+  updateBracket: function(req, res) {
 
     var name = req.body.name;
     var teams = req.body.teams;
@@ -47,25 +40,13 @@ module.exports = {
       size: size
     };
 
-    Bracket.findOneAndUpdate({name: name}, newBracket, function(err, bracket) {
+    Bracket.findOneAndUpdate({name: name}, newBracket, function(err, res) {
       if (err) {
         console.error(err);
       } else {
-        res.send(bracket);
+        res.send(res);
       }
     });
-  },
-
-  getBracket: function(req, res, next) {
-
-    getBracket({name: req.params.name})
-      .then(function(bracket) {
-        console.log('BRACKET FOUND!', bracket);
-        res.json(bracket);
-      })
-      .fail(function(err) {
-        next(err);
-      });
   }
 
 };

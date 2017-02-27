@@ -21,7 +21,7 @@ angular.module('bracket.services', [])
       data: bracket
     })
     .then(function(res) {
-      console.log('Created:', res);
+      console.log('Bracket Created:', res.data);
       return res.data;
     });
   };

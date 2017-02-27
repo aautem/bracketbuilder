@@ -1,58 +1,35 @@
 angular.module('bracket.four', [])
 
-.controller('FourTeamController', function($scope, $window, Brackets) {
-  $scope.data = {};
+.controller('FourTeamController', function($scope, Brackets) {
 
+  $scope.data = {}; // Initialize data to empty object
 
-  // CREATION.JS LOGIC
-  $scope.advanceTeam = function(curIndex, nextIndex) {
-    console.log('ADVANCING TEAM...');
-    $scope.data.bracket.teams[nextIndex] = $scope.data.bracket.teams[curIndex];
+  $scope.addTeam = function(index) {
+    $scope.data.bracket.teams[index] = prompt('Add a team!', 'team name');
+    console.log('Teams in bracket:', $scope.data.bracket.teams);
   };
 
   $scope.remove = function(index) {
+    console.log('Removing Team.')
     $scope.data.bracket.teams[index] = undefined;
+  };
+
+  $scope.advanceTeam = function(curIndex, nextIndex) {
+    console.log('Advancing Team.');
+    $scope.data.bracket.teams[nextIndex] = $scope.data.bracket.teams[curIndex];
   };
 
   $scope.saveBracket = function() {
     if ($scope.data.bracket.name === '') {
       alert('Bracket must have title.');
-      return;
     } else {
-      console.log('Saving bracket to database...');
-      // POST REQUEST TO API
-      Brackets.create($scope.data.bracket);
-      alert('Bracket saved!');
-    }
-  };
-  ///////////////////////
-
-
-  $scope.getOne = function() {
-    console.log('GRABBING BRACKET...');
-
-    Brackets.getOne(window.loadedBracket)
+      console.log('Saving bracket.');
+      Brackets.create($scope.data.bracket)
       .then(function(bracket) {
-        console.log(bracket);
-        $scope.data.bracket = bracket;
-      })
-      .catch(function(err) {
-        console.error(err);
+        Brackets.setBracket(bracket);
+        alert('Bracket saved.');
       });
-  };
-
-  $scope.remove = function(index) {
-    $scope.data.bracket.teams[index] = undefined;
-  };
-
-  $scope.advanceTeam = function(curIndex, nextIndex) {
-    console.log('ADVANCING TEAM...');
-    $scope.data.bracket.teams[nextIndex] = $scope.data.bracket.teams[curIndex];
-  };
-
-  $scope.addTeam = function(index) {
-    $scope.data.bracket.teams[index] = prompt('Add a team!', 'team name');
-    console.log('Teams in bracket:', $scope.data.bracket.teams);
+    }
   };
 
   $scope.saveBracket = function() {
@@ -62,11 +39,12 @@ angular.module('bracket.four', [])
     alert('Bracket updated!');
   };
 
+  let bracket = Brackets.getBracket();
 
   // LOAD OR CREATE
-  if (window.loadedBracket) {
+  if (bracket) {
     // Load Bracket
-    $scope.getOne();
+    $scope.data.bracket = bracket;
   } else {
     // Setup Blank Bracket
     $scope.data.bracket = {};
