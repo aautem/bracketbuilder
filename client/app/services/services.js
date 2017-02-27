@@ -26,6 +26,16 @@ angular.module('bracket.services', [])
     });
   };
 
+  let deleteBracket = function(bracket) {
+    return $http({
+      method: 'DELETE',
+      url: '/api/brackets',
+      data: bracket
+    }).then(function(res) {
+      console.log(res.data);
+    });
+  }
+
   let setBracket = function(bracketObj) {
     bracket = bracketObj;
   };
@@ -37,6 +47,7 @@ angular.module('bracket.services', [])
   return {
     getAll: getAll,
     create: create,
+    deleteBracket: deleteBracket,
     setBracket: setBracket,
     getBracket: getBracket
   };

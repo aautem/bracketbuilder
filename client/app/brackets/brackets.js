@@ -24,6 +24,11 @@ angular.module('bracket.brackets', [])
     }
   };
 
+  $scope.deleteBracket = function(bracket) {
+    console.log('Deleting bracket.');
+    Brackets.deleteBracket(bracket);
+  };
+
   let getAll = function() {
     console.log('Loading brackets.');
     Brackets.getAll()

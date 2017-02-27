@@ -80,3 +80,7 @@
 .vs-rt {
   border-left: 2px solid black;
 }
+
+.neg-mar {
+  margin-left: -100px;
+}
