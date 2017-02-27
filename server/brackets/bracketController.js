@@ -13,38 +13,23 @@ module.exports = {
   },
 
   saveBracket: function(req, res) {
-
-    var name = req.body.name;
-    var teams = req.body.teams;
-    var size = req.body.size;
-
-    var newBracket = {
-      name: name,
-      teams: teams,
-      size: size
+    let bracket = {
+      name: req.body.name,
+      teams: req.body.teams,
+      size: req.body.size
     };
-
-    createBracket(newBracket);
-    res.send(newBracket);
-  },
-
-  updateBracket: function(req, res) {
-
-    var name = req.body.name;
-    var teams = req.body.teams;
-    var size = req.body.size;
-
-    var newBracket = {
-      name: name,
-      teams: teams,
-      size: size
-    };
-
-    Bracket.findOneAndUpdate({name: name}, newBracket, function(err, res) {
+    Bracket.findOneAndUpdate({name: bracket.name}, bracket, function(err, data) {
       if (err) {
         console.error(err);
+      } else if (!data) {
+        bracket = new Bracket(bracket);
+        bracket.save(function(err, bracket) {
+          console.log('Creating bracket:', bracket);
+          res.send(bracket);
+        });
       } else {
-        res.send(res);
+        console.log('Bracket Updated.');
+        res.send(data);
       }
     });
   }

@@ -32,17 +32,10 @@ angular.module('bracket.four', [])
     }
   };
 
-  $scope.saveBracket = function() {
-    console.log('Updating database...');
-    // UPDATE BRACKET
-    Brackets.update($scope.data.bracket);
-    alert('Bracket updated!');
-  };
-
   let bracket = Brackets.getBracket();
 
   // LOAD OR CREATE
-  if (bracket) {
+  if (bracket && bracket.size === 4) {
     // Load Bracket
     $scope.data.bracket = bracket;
   } else {

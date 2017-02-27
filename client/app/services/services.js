@@ -26,17 +26,6 @@ angular.module('bracket.services', [])
     });
   };
 
-  let update = function(bracket) {
-    return $http({
-      method: 'POST',
-      url: '/api/update',
-      data: bracket
-    })
-    .then(function(res) {
-      return res.data;
-    });
-  };
-
   let setBracket = function(bracketObj) {
     bracket = bracketObj;
   };
@@ -48,7 +37,6 @@ angular.module('bracket.services', [])
   return {
     getAll: getAll,
     create: create,
-    update: update,
     setBracket: setBracket,
     getBracket: getBracket
   };
