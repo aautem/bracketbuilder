@@ -39,7 +39,7 @@
     <!-- BRACKET TITLE DISPLAY -->
     <div class="col-md-8">
       <div class="well text-primary">
-        {{data.bracket.name}}
+        <span ng-if="data.bracket.name" class="title">{{data.bracket.name}}</span>
         <span ng-if="!data.bracket.name" class="text-muted">
           Add bracket title here
         </span>
@@ -200,8 +200,8 @@
     <div class="col-md-4">
       <div class="panel panel-primary">
         <div class="panel-heading">Tournament Champion</div>
-        <div class="panel-body text-info champ">
-          {{data.bracket.teams[6]}}
+        <div class="panel-body text-info">
+          <span ng-if="data.bracket.teams[6]" class="champ">{{data.bracket.teams[6]}}</span>
           <span ng-if="!data.bracket.teams[6]" class="text-muted">
               Winner goes here
             </span>

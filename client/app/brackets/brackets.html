@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/#/brackets">BracketBuilder</a>
+      <a class="navbar-brand" href="#/brackets">BracketBuilder</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -18,11 +18,11 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Create <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#/create">4 Teams</a></li>
-            <li><a href="#/create">8 Teams</a></li>
-            <li><a href="#/create">16 Teams</a></li>
-            <li><a href="#/create">32 Teams</a></li>
-            <li><a href="#/create">64 Teams</a></li>
+            <li><a href="#/four-team">4 Teams</a></li>
+            <li><a href="#/eight-team">8 Teams</a></li>
+            <li><a href="#/sixteen-team">16 Teams</a></li>
+            <li><a href="#/thirty-two-team">32 Teams</a></li>
+            <li><a href="#/sixty-four-team">64 Teams</a></li>
           </ul>
         </li>
       </ul>
@@ -35,7 +35,7 @@
   <div class="row" ng-repeat="bracket in data.brackets">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-      <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="setLoadedBracket(bracket.name)">
+      <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="loadBracket(bracket)">
         {{bracket.name}}
       </button>
       <br>

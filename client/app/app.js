@@ -2,7 +2,6 @@ angular.module('bracketbuilder', [
   'bracket.services',
   'bracket.brackets',
   'bracket.four',
-  'bracket.create',
   'bracket.eight',
   'ngRoute'
 ])
@@ -12,15 +11,11 @@ angular.module('bracketbuilder', [
       templateUrl: 'app/brackets/brackets.html',
       controller: 'BracketsController'
     })
-    .when('/mybracket', {
+    .when('/four-team', {
       templateUrl: 'app/four-team/four-team.html',
       controller: 'FourTeamController'
     })
-    .when('/create', {
-      templateUrl: 'app/four-team/four-team.html',
-      controller: 'CreationController'
-    })
-    .when('/eightteam', {
+    .when('/eight-team', {
       templateUrl: 'app/eight-team/eight-team.html',
       controller: 'EightTeamController'
     })

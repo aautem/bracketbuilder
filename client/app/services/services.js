@@ -2,60 +2,55 @@ angular.module('bracket.services', [])
 
 .factory('Brackets', function($http, $rootScope, $location) {
 
-  var getAll = function() {
+  let bracket = null;
+
+  let getAll = function() {
     return $http({
       method: 'GET',
       url: '/api/brackets'
     })
     .then(function(res) {
       return res.data;
-    })
+    });
   };
 
-  var getOne = function(name) {
-    return $http({
-      method: 'GET',
-      url: '/' + name
-    })
-    .then(function(res) {
-      if (res.data.size === 8 && window.location.hash !== '#/eightteam') {
-        // REDIRECT TO EIGHTTEAM BRACKET!
-        console.log('REDIRECTING TO EIGHT TEAM LAYOUT...');
-        $location.path('/eightteam');
-      } else {
-        return res.data;
-      }
-    })
-  };
-
-  var create = function(bracket) {
+  let create = function(bracket) {
     return $http({
       method: 'POST',
       url: '/api/brackets',
       data: bracket
     })
     .then(function(res) {
-      return res;
+      console.log('Created:', res);
+      return res.data;
     });
   };
 
-  var update = function(bracket) {
-
+  let update = function(bracket) {
     return $http({
       method: 'POST',
       url: '/api/update',
       data: bracket
     })
     .then(function(res) {
-      return res;
+      return res.data;
     });
+  };
+
+  let setBracket = function(bracketObj) {
+    bracket = bracketObj;
+  };
+
+  let getBracket = function() {
+    return bracket;
   };
 
   return {
     getAll: getAll,
-    getOne: getOne,
     create: create,
-    update: update
+    update: update,
+    setBracket: setBracket,
+    getBracket: getBracket
   };
 
 });
