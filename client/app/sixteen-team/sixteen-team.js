@@ -1,6 +1,6 @@
-angular.module('bracket.eight', [])
+angular.module('bracket.sixteen', [])
 
-.controller('EightTeamController', function($scope, Brackets) {
+.controller('SixteenTeamController', function($scope, Brackets) {
 
   $scope.data = {}; // Initialize data to empty object
 
@@ -30,7 +30,7 @@ angular.module('bracket.eight', [])
   let bracket = Brackets.getBracket();
 
   // LOAD OR CREATE
-  if (bracket && bracket.size === 8) {
+  if (bracket && bracket.size === 16) {
     // Load Bracket
     $scope.data.bracket = bracket;
   } else {
@@ -38,7 +38,7 @@ angular.module('bracket.eight', [])
     $scope.data.bracket = {};
     $scope.data.bracket.name = '';
     $scope.data.bracket.teams = [];
-    $scope.data.bracket.size = 8;
+    $scope.data.bracket.size = 16;
   }
 
 });

@@ -3,6 +3,7 @@ angular.module('bracketbuilder', [
   'bracket.brackets',
   'bracket.four',
   'bracket.eight',
+  'bracket.sixteen',
   'ngRoute'
 ])
 .config(function($routeProvider, $httpProvider) {
@@ -18,6 +19,10 @@ angular.module('bracketbuilder', [
     .when('/eight-team', {
       templateUrl: 'app/eight-team/eight-team.html',
       controller: 'EightTeamController'
+    })
+    .when('/sixteen-team', {
+      templateUrl: 'app/sixteen-team/sixteen-team.html',
+      controller: 'SixteenTeamController'
     })
     .otherwise(
       '/brackets'
