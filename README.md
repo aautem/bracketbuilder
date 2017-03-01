@@ -1,6 +1,3 @@
-# mvp
-HRR21 MVP Project
-
 ## BracketBuilder ##
   > For tournament planners and fans to stay up-to-date with bracket results.
 
